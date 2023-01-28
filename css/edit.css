@@ -1,0 +1,97 @@
+:root {
+    --wht: #fff;
+    --blk1: #172317;
+    --blk2: #1a1e12;
+    --bv: #8a2be2;
+}
+a {
+    text-decoration: none;
+}
+img {
+    width: 100%;
+}
+
+label {
+    padding-left: 20px;
+}
+
+.edit-modal.overlay {
+    position: fixed;
+    top: 0;right: 0;bottom: 0;left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.edit-modal.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.edit-modal.modal-container {
+    position: fixed;
+    background-color: var(--wht);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.6s;
+    z-index: 30;
+    height: 450px;
+    width: 60%;
+    border-radius: 20px;
+}
+
+.edit-modal.modal-container.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    
+}
+
+.edit-modal.modal-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -40px;
+}
+
+.edit-modal.modal-header button {
+    background: none;
+    border: none;
+    margin: 20px;
+    font-weight: 600;
+}
+
+.edit-modal.modal-header button:hover {
+    background-color: rgb(195, 33, 33);
+    border-radius: 100px;
+}
+
+.edit-modal.modal-body form label, input, textarea {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.edit-modal.modal-body form input, textarea {
+    border: 2px solid black;
+    border-radius: 8px;
+    resize: none;
+}
+
+.edit-modal.modal-body form textarea {
+    width: 46%;
+}
+
+.edit-modal.modal-body form label {
+    font-weight: 500;
+}
+
+.edit-modal.modal-body form #submit-button {
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.edit-modal.modal-body form #submit-button:hover {
+    color: var(--wht);
+    background-color: var(--bv);
+    transition: 0.3s;
+}

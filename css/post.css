@@ -1,0 +1,118 @@
+:root {
+    --blk1: #172317;
+    --blk2: #1a1e12;
+    --bv: #8a2be2;
+    --wht: #fff;
+}
+
+::selection {
+    color: var(--wht);
+    background-color: chocolate;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.img-bg {
+    width: 100%;
+    height: 600px;
+    position: absolute;
+    z-index: -1;
+    background-color: var(--blk1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 0 0, 100% 0, 100% 100%, 0 100% */
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 0 100%);
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-container img {
+    margin-top: 150px;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px 0 rgba(0,0,0,0.4);
+}
+
+
+.post-title {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-title h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.post-title .user {
+    padding-right: 30px;
+    position: absolute;
+    display: flex;
+    right: 0;
+}
+
+.post-title .user p {
+    padding-left: 10px;
+    font-size: 0.8rem;
+}
+
+.post-title .user img {
+    margin: 0;
+    padding: 0;
+    height: 25px;
+    width: 25px;
+}
+
+.post-body {
+    padding: 50px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+#create-post {
+    padding-left: 10px;
+    color: var(--wht);
+    background-color: rgba(0,0,0,0);
+    cursor: pointer;
+    border: none;
+}
+
+.Edit, .Delete {
+    color: var(--wht);
+    padding: 5px 20px;
+    border: 1.5px solid;
+    border-radius: 5px;
+    background-color: black;
+    margin: 0 10px;
+}
+
+.Delete {
+    background-color: rgb(195, 33, 33);
+}

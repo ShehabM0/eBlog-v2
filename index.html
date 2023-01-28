@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/post.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/create.css">
+    <link rel="stylesheet" href="css/alert.css">
+    <title>eBlog</title>
+
+    <!-- fonts -->
+    <link 
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    />
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com" crossorigin 
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    
+    <!-- page header -->
+    <div class="header">
+      <div class="nav-container">
+        <a href="index.html">
+          <span class="logo">
+              e<span>B</span>log
+              <button id="create-post">Create Post</button>
+          </span>
+        </a>
+        <span>
+            <a href="signup.html" class="signup">SignUp</a>
+            <a href="login.html" class="login">Login</a>
+        </span>
+      </div>  
+    </div>
+
+    <!-- page alerts -->
+    <div class="alert-msg">
+      <button class="close-btn">&times;</button>
+      <p>this is alert message</p>
+    </div>
+
+    <!-- middle between page header and posts list -->
+    <div class="middle">
+        <div class="text-container">
+          <div class="hidden">
+            <h1>Welcome To Our eBlog</h1>
+            <h6>The Way Of Your Knowladge</h6>
+          </div>
+        </div>
+    </div>
+
+    <!-- posts list -->
+    <div class="post-container">
+      <div class="post">
+        <img src="assets/1.jpg" alt="">
+        <h3>MBTI Psychological Types</h3>
+        <p>Have you ever heard someone describe themselves as an INTJ or an ESTP and wondered what those cryptic-sounding letters could mean? What these people are referring to is their personality type based on the Myers-Briggs Type Indicator (MBTI)</p>
+        <div class="user">
+          <img src="assets/bx-user-circle.svg" alt="">
+          <p>Fatma Emad</p>
+        </div>
+      </div>
+
+      <div class="post">
+        <img src="assets/9.jpg" alt="">
+        <h3>Physiognomy vs Graphology</h3>
+        <p>Two different methods for personality traits analysis</p>
+        <div class="user">
+          <img src="assets/bx-user-circle.svg" alt="">
+          <p>Maram Ahmed</p>
+        </div>
+      </div>
+
+      <div class="post">
+        <img src="assets/3.jpg" alt="">
+        <h3>Title</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam a minima quis doloremque id earum minus quasi quae veniam, esse non, totam voluptates nisi pariatur! Ab quo autem amet illo?</p>
+        <div class="user">
+          <img src="assets/bx-user-circle.svg" alt="">
+          <p>Baher Mohamed</p>
+        </div>
+      </div>
+
+      <div class="post">
+        <img src="assets/10.jpg" alt="">
+        <a href="google.com" id="post-link">
+          <h3>Software engineer</h3>
+        </a>
+        <p>As a software engineer, you'll work in a constantly evolving environment, due to technological advances and the strategic direction of the organisation you work for. You'll create, maintain, audit and improve systems to meet particular needs, often as advised by a systems analyst or architect, testing both hard and software systems to diagnose and resolve system faults</p>
+        <div class="user">
+          <img src="assets/bx-user-circle.svg" alt="">
+          <p>Shehab Mohamed</p>
+        </div>
+      </div>
+
+      <div class="post">
+        <img src="assets/4.jpg" alt="">
+        <h3>Where can I get some?</h3>
+        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words et</p>
+        <div class="user">
+          <img src="assets/bx-user-circle.svg" alt="">
+          <p>Mohamed Gamal</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- create-post window -->
+    <div class="create-modal modal-container">
+      <div class="create-modal modal-header">
+        <button class="close-btn" id="create-close-btn">&times;</button>
+      </div>
+      <div class="create-modal modal-body">
+        <!-- create-post form -->
+        <form action="#" method="POST">
+          <!-- title -->
+          <label for="title">
+            Title
+            <span style="color: red">*</span>
+          </label>
+          <input
+            type="text"
+            id="title"
+            placeholder="type the post title.."
+            name="title"
+          />
+          <!-- image -->
+          <label for="image">
+            Image
+            <span style="color: red">*</span>
+          </label>
+          <input
+            type="text"
+            id="image"
+            placeholder="type the post img number.."
+            name="image"
+          />
+          <!-- body  -->
+          <label for="body">
+            Body
+            <span style="color: red">*</span>
+          </label>
+          <textarea
+            type="text"
+            id="text-body"
+            placeholder="type the post body.."
+            name="body"
+          ></textarea>
+          <!-- buttons -->
+          <input
+            type="submit"
+            value="Create"
+            id="submit-button"
+            class="buttons"
+            name="post-create-form"
+          />
+        </form>
+      </div>
+    </div>
+    
+    <!-- create-post window background -->
+    <div class="create-modal overlay"></div> 
+
+  </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/post.css" />
+    <link rel="stylesheet" href="css/create.css" />
+    <link rel="stylesheet" href="css/edit.css" />
+    <title>Post</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+
+    <!-- page header -->
+    <div class="header">
+      <div class="nav-container">
+        <div class="left-side">
+          <a href="index.html">
+            <span class="logo"> e<span>B</span>log </span>
+          </a>
+          <button id="create-post">Create Post</button>
+        </div>
+        <span>
+          <a href="signup.html" class="signup">SignUp</a>
+          <a href="login.html" class="login">Login</a>
+        </span>
+      </div>
+    </div>
+
+
+    <!-- create-post window -->
+    <div class="create-modal modal-container">
+      <div class="create-modal modal-header">
+        <button class="close-btn" id="create-close-btn">&times;</button>
+      </div>
+      <div class="create-modal modal-body">
+        <!-- create-post form -->
+        <form action="#" method="POST">
+          <!-- title -->
+          <label for="title">
+            Title
+            <span style="color: red">*</span>
+          </label>
+          <input
+            type="text"
+            id="title"
+            placeholder="type the post title.."
+            name="title"
+          />
+          <!-- image -->
+          <label for="image">
+            Image
+            <span style="color: red">*</span>
+          </label>
+          <input
+            type="text"
+            id="image"
+            placeholder="type the post img number.."
+            name="image"
+          />
+          <!-- body  -->
+          <label for="body">
+            Body
+            <span style="color: red">*</span>
+          </label>
+          <textarea
+            type="text"
+            id="text-body"
+            placeholder="type the post body.."
+            name="body"
+          ></textarea>
+          <!-- buttons -->
+          <input
+            type="submit"
+            value="Create"
+            id="submit-button"
+            class="buttons"
+            name="post-create-form"
+          />
+        </form>
+      </div>
+    </div>
+
+    <!-- page background -->
+    <div class="img-bg"></div>
+
+    <!-- page post info -->
+    <div class="img-container">
+      <div class="img">
+        <img src="assets/11.jpg" alt="" />
+      </div>
+    </div>
+
+    <div class="post-title">
+      <h3>Software Developer vs Software Engineer</h3>
+      <div class="user">
+        <img src="assets/bx-user-circle.svg" alt="" />
+        <p>Shehab Mohamed</p>
+      </div>
+    </div>
+
+    <div class="post-body">
+      <p>
+        As a software engineer, you'll work in a constantly evolving
+        environment, due to technological advances and the strategic direction
+        of the organisation you work for. You'll create, maintain, audit and
+        improve systems to meet particular needs, often as advised by a systems
+        analyst or architect, testing both hard and software systems to diagnose
+        and resolve system faults Contrary to popular belief, Lorem Ipsum is not
+        simply random text. It has roots in a piece of classical Latin
+        literature from 45 BC, making it over 2000 years old. Richard
+        McClintock, a Latin professor at Hampden-Sydney College in Virginia,
+        looked up one of the more obscure Latin words, consectetur, from a Lorem
+        Ipsum passage, and going through the cites of the word in classical
+        literature, discovered the undoubtable source. Lorem Ipsum comes from
+        sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
+        Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a
+        treatise on the theory of ethics, very popular during the Renaissance.
+        The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes
+        from a line in section 1.10.32. The standard chunk of Lorem Ipsum used
+        since the 1500s is reproduced below for those interested. Sections
+        1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are
+        also reproduced in their exact original form, accompanied by English
+        versions from the 1914 translation by H. Rackham.
+      </p>
+    </div>
+
+    <!-- post buttons -->
+    <div class="buttons">
+      <div class="buttons-container">
+        <button class="Edit" id="edit-post">Edit</button><button class="Delete">Delete</button>
+      </div>
+    </div>
+
+    <!-- edit-post window -->
+    <div class="edit-modal modal-container">
+      <div class="edit-modal modal-header">
+        <button class="close-btn" id="edit-close-btn">&times;</button>
+      </div>
+      <div class="edit-modal modal-body">
+        <!-- edit-post form -->
+        <form action="#" method="POST">
+          <!-- title -->
+          <label for="title">
+            Title
+          </label>
+          <input
+            type="text"
+            id="title"
+            placeholder="type the post title.."
+            name="title"
+          />
+          <!-- image -->
+          <label for="image">
+            Image
+          </label>
+          <input
+            type="text"
+            id="image"
+            placeholder="type the post img number.."
+            name="image"
+          />
+          <!-- body  -->
+          <label for="body">
+            Body
+          </label>
+          <textarea
+            type="text"
+            id="text-body"
+            placeholder="type the post body.."
+            name="body"
+          ></textarea>
+          <!-- buttons -->
+          <input
+            type="submit"
+            value="Edit"
+            id="submit-button"
+            class="buttons"
+            name="post-update-form"
+          />
+        </form>
+      </div>
+    </div>
+
+    <div class="create-modal overlay"></div> 
+    <div class="edit-modal overlay"></div> 
+
+  </body>
+</html>

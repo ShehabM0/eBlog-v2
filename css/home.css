@@ -1,0 +1,37 @@
+:root {
+    --wht: #fff;
+    --blk1: #172317;
+    --blk2: #1a1e12;
+    --bv: #8a2be2;
+}
+
+.middle {
+    width: 100%;
+    height: 450px;
+    background-color:var(--blk2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.middle .text-container h1 {
+    color: var(--wht);
+    font-size: 50px;
+    text-align: center;
+}
+
+.middle .text-container h6 {
+    color: var(--wht);
+    font-size: 25px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.hidden {
+    opacity: 0;
+    transition: 1.8s;
+}
+
+.show {
+    opacity: 1;
+}
