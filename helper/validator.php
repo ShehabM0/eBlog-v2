@@ -7,6 +7,15 @@ function checkForm($array, $keys) {
     return true;
 }
 
+function checkPass($pass)
+{
+    //regular expression match (regex)
+    $containsLetter = preg_match('/[a-zA-Z]/', $pass);
+    $containsDigit = preg_match('/\d/', $pass);
+    $containsSpecial = preg_match('/[^a-zA-Z\d]/', $pass);
+    return ($containsLetter && $containsDigit && $containsSpecial);
+}
+
 function checkLength($value, $max_length, $min_length = 3) {
     return strlen($value) <= $max_length && strlen($value) >= $min_length;
 }
