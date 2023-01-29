@@ -1,4 +1,4 @@
 <?php
-    //server name, username, password, database
+    //server_name, username, password, database
     $conn = new mysqli("localhost", "root", "", "blog");
 ?>

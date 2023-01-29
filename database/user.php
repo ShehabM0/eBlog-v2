@@ -1,16 +1,16 @@
 <?php
 
-require "db.php";
+require "db_connection.php";
 
-
-function create_user($username, $email, $password) {
+function createUser($username, $email, $password) {
     global $conn;
-    // Hash password
+
     $password_hashed = password_hash($password, null);
-    // Query
+
     $query = "INSERT INTO users(username, email, password) ";
     $query .= "VALUES (?, ?, ?)";
 
+    // Prepare, Bind_param, Execute
     $stmt = $conn->prepare($query);
     $stmt->bind_param("sss", $username, $email, $password_hashed);
     $stmt->execute();
@@ -20,7 +20,7 @@ function create_user($username, $email, $password) {
 
 function getUserByEmail($email) {
     global $conn;
-    // Query
+
     $query="SELECT id,username,email,password ";
     $query.="FROM users ";
     $query.="WHERE email = ?";
@@ -31,9 +31,8 @@ function getUserByEmail($email) {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // return the first fetch of the result
+    // returning the first fetch of the result
     return (!$conn->error) ? $result->fetch_assoc() : [];
 }
-
 
 ?>

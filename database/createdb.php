@@ -6,10 +6,8 @@ if($conn->connect_error)
 else {
     $query = "CREATE DATABASE IF NOT EXISTS blog ";
     $result = $conn->query($query);
-    if($result)
-        echo "DATABASE IS CREATED.";
-    else   
-        echo "FAILED TO CREATE DATABASE!!";
+
+    echo ($result) ? "DATABASE IS CREATED." : "FAILED TO CREATE DATABASE!!";
 
     $query = "CREATE TABLE IF NOT EXISTS users  (
         id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -20,10 +18,8 @@ else {
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
     )";
     $result = $conn->query($query);
-    if($result)
-        echo "TABLE USERS CREATED";
-    else
-        echo "TABLE USERS CREATION FAILED";
+
+    echo ($result) ? "TABLE USERS CREATED" : "TABLE USERS CREATION FAILED";
 
     $query = "CREATE TABLE IF NOT EXISTS posts (
         id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -36,10 +32,8 @@ else {
         FOREIGN KEY (user_id) REFERENCES users(id)
     )";
     $result = $conn->query($query);
-    if($result)
-        echo "TABLE POSTS CREATED";
-    else
-        echo "TABLE POSTS CREATION FAILED";
+
+    echo ($result) ? "TABLE POSTS CREATED" : "TABLE POSTS CREATION FAILED";
 }
 
 ?>
