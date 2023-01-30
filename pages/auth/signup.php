@@ -18,6 +18,12 @@ require_once "../../shared/header.php";
               name="username"
             />
             <input
+              type="email"
+              placeholder="Email"
+              required="required"
+              name="email"
+            />
+            <input
               type="password"
               placeholder="Password"
               required="required"
@@ -29,16 +35,19 @@ require_once "../../shared/header.php";
               required="required"
               name="password_confirm"
             />
-            <input
-              type="submit"
-              id="submit-btn"
-              value="Create Account"
-              name="regform"
-            />
+            <div class="p-class">
+              <input
+                type="submit"
+                id="submit-btn"
+                value="Create Account"
+                name="regform"
+              />
+              <p>Already have an account?<a href="/blog/pages/auth/login.php">Login</a></p>
+            </div>
           </form>
-          <div class="p-class">
-            <p>Already have an account?</p><a href="/blog/pages/auth/login.php">Login</a>
-          </div>
+          
+            
+          
         </div>
       </div>
     </body>
