@@ -1,50 +1,21 @@
 <?php
+
 require_once "../../shared/header.php";
+require "../../helper/validator.php";
+require "../../database/post.php";
+global $conn;
 
-// post-create-form validation //
-function checkForm($array, $keys) {
-  foreach($keys as $key)
-      if(!isset($array["$key"]) || empty($array["$key"]))
-          return false;
-  return true;
+$id = $_GET["id"];
+
+$post = getPostById($id);
+if(!$post) {
+    header("HTTP/1.1 404 Not Found", true, 404);
+    header("location: /blog/404.php");
 }
 
+$user_id = $post["user_id"];
+$logged_user_id = $_SESSION["user"]["id"] ?? -1;
 
-// post and user authorization //
-function getUsername($post)
-{
-  $user_id = $post["user_id"];
-  $user = array_values($_SESSION["users"])[$user_id - 1];
-  return $user["username"];
-}
-
-$post_arr_id = $_GET["id"] - 1; // minus 1 as zero indexed array
-$post = $_SESSION["posts"][$post_arr_id] ?? null;
-$post_user_id = $_SESSION["posts"][$post_arr_id]["user_id"];
-
-// if current_user not the post owner,
-// then definitely he can't edit the post he currently visiting
-$valid_edit_post = true;
-
-if(!isset($_SESSION["current_user"]))
-  $valid_edit_post = false;
-else
-  $current_user_id = $_SESSION["current_user"]["id"];
-
-// geeting username of the post creator
-$username = getUsername($post);
-
-// post is not found
-if($post == null) {
-  header("Error404 Not Found", true, 404);
-  header("location: /blog/404.php");
-}
-
-// The user who is trying to edit, is NOT the post creator
-if($post_user_id != $current_user_id)
-{
-  $valid_edit_post = false;
-}
 ?>
 
       <!-- page background  -->
@@ -61,7 +32,7 @@ if($post_user_id != $current_user_id)
         <h3><?= $post["title"] ?></h3>
         <div class="user">
           <img src="/blog/assets/bx-user-circle.svg" alt="" />
-          <p><?= $username ?></p>
+          <p><?= $post["username"] ?></p>
         </div>
       </div>
 
@@ -70,7 +41,7 @@ if($post_user_id != $current_user_id)
       </div>
 
       <!-- post buttons  -->
-      <?php if($valid_edit_post) { ?>
+      <?php if($user_id == $logged_user_id) { ?>
         <div class="buttons">
           <div class="buttons-container">
             <button class="Edit" id="edit-post">Edit</button>

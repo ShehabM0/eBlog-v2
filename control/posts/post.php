@@ -3,9 +3,9 @@
 if(!isset($_SESSION))
     session_start();
 
-include_once "../helpers/validator.php";
-require "../database/db_connection.php";
-require "../database/post.php";
+include_once "../../helper/validator.php";
+require "../../database/db_connection.php";
+require "../../database/post.php";
 
 if(isset($_POST["post-create-form"])) {
     $data_is_valid = checkForm($_POST, ["title", "body"]);
@@ -42,15 +42,22 @@ if(isset($_POST["post-create-form"])) {
         }
         else 
         {
-            array_push($_SESSION["messages"], "Title length must be betwewen [5, 100] characters");
-            header("location: /blog/");
-
+            if(!checkLength($title, 100, 5)) 
+            {
+                array_push($_SESSION["messages"], "Title length must be betwewen [5, 100] characters");
+                header("location: /blog/");
+            }
+            else
+            {
+                array_push($_SESSION["messages"], "Image type not supported");
+                header("location: /blog/");
+            }
         }
     }
     else
     {
         array_push($_SESSION["messages"], "Post is invalid, please try again");
-        header("location: /blog/pages/posts/create.php");
+        header("location: /blog/");
     }
 }
 
