@@ -39,7 +39,7 @@
     <!-- page header  -->
     <div class="header">
       <div class="nav-container">
-        <?php if(!isset($_SESSION["current_user"])) { ?>
+        <?php if(!isset($_SESSION["user"])) { ?>
         <a href="/blog/">
           <span class="logo">
               e<span>B</span>log
@@ -58,7 +58,7 @@
             <a href="/blog/pages/posts/myposts.php"><button id="create-post">My posts</button></a>
           </div>
           <span>
-              <span style="color: #fff; padding: 0 15px"><?= "Hello, " . $_SESSION["current_user"]["username"] ?></span>
+              <span style="color: #fff; padding: 0 15px"><?= "Hello, " . $_SESSION["user"]["username"] ?></span>
               <a href="/blog/control/auth/logout.php" class="logout">Logout</a>
           </span>
         <?php } ?>
@@ -71,7 +71,7 @@
         <button class="close-btn" id="create-close-btn">&times;</button>
       </div>
       <div class="create-modal modal-body">
-        <form action="/blog/control/posts/post.php" method="POST">
+        <form action="/blog/control/posts/post.php" method="POST" enctype="multipart/form-data">
           <!-- title -->
           <label for="title">
             Title
@@ -85,15 +85,10 @@
           />
           <!-- image -->
           <label for="image">
-            Image
+            Image link
             <span style="color: red">*</span>
           </label>
-          <input
-            type="text"
-            id="image"
-            placeholder="pick an img number from 1-11"
-            name="image"
-          />
+          <input type="file"  name="image" />
           <!-- body  -->
           <label for="body">
             Body

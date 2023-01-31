@@ -1,13 +1,18 @@
 <?php
 
-$conn = new mysqli("localhost", "root","","blog");
+$conn = new mysqli("localhost", "root","");
 if($conn->connect_error)
     echo "FAILED to connect to DB!!";
 else {
     $query = "CREATE DATABASE IF NOT EXISTS blog ";
     $result = $conn->query($query);
 
-    echo ($result) ? "DATABASE IS CREATED." : "FAILED TO CREATE DATABASE!!";
+    if ($result) { 
+        $conn = new mysqli("localhost", "root","","blog");
+        echo "DATABASE IS CREATED.";
+    }
+    else
+        echo "FAILED TO CREATE DATABASE!!";
 
     $query = "CREATE TABLE IF NOT EXISTS users  (
         id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,

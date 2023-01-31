@@ -74,15 +74,13 @@ h2 {
     display: flex;
     justify-content: center;
     margin-top: -100px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     font-weight: 700;
     font-size: 1.5rem;
 }
 
-.p-class {
-    display: flex;
-    position: absolute;
-    bottom: 100px;
+.p-class p {
+    display: inline;
 }
 
 .p-class a {

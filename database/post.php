@@ -23,7 +23,6 @@ function createPost($array) {
 function getAllPosts() {
     global $conn;
     
-    $query = "SELECT * FROM posts";
     $query = "SELECT posts.id, posts.title, posts.img, posts.body, posts.created_at, posts.user_id,users.username ";
     $query.= "FROM posts ";
     $query.= "JOIN users ON users.id = posts.user_id";

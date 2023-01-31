@@ -1,7 +1,8 @@
 <?php
-    if(!isset($_SESSION))
-        session_start();
-$posts = $_SESSION["posts"];
+  require("database/post.php");
+  if(!isset($_SESSION))
+      session_start();
+  $posts = getAllPosts();
 ?>
     <div class="middle">
         <div class="text-container">
@@ -15,9 +16,6 @@ $posts = $_SESSION["posts"];
     <div class="post-container">
       <?php
           foreach($posts as $post) {
-              $users = array_values($_SESSION["users"]);
-              $user_id = $post["user_id"];
-              $user = $users[$user_id-1];
       ?>
       <a href="/blog/pages/posts/post.php?id=<?= $post["id"] ?>" id="post-link">
         <div class="post">
@@ -26,7 +24,7 @@ $posts = $_SESSION["posts"];
           <p><?= $post["body"] ?></p>
           <div class="user">
             <img src="assets/bx-user-circle.svg" alt="">
-            <p><?= $user["username"] ?></p>
+            <p><?= $post["username"] ?></p>
           </div>
         </div>
       </a>
@@ -35,7 +33,7 @@ $posts = $_SESSION["posts"];
 
 
     <?php 
-      if(empty($_SESSION['posts']))
+      if(count($posts) == 0)
       {
           $message="There are no posts available";
           array_push($_SESSION['messages'],$message);

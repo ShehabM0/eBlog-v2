@@ -48,7 +48,7 @@ $logged_user_id = $_SESSION["user"]["id"] ?? -1;
             <button form="fname" type="submit" class="Delete" name="post-delete-form" value="DELETE">Delete</button>
               <form action="/blog/control/posts/post.php" method="POST" id="fname">
                   <input type="hidden" name="_method" value="DELETE">
-                  <input type="hidden" name="id" value="<?= $post_arr_id ?>">
+                  <input type="hidden" name="id" value="<?= $post["id"] ?>">
               </form>
           </div>
         </div>
