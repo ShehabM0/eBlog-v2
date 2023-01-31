@@ -24,7 +24,7 @@ $logged_user_id = $_SESSION["user"]["id"] ?? -1;
       <!-- page post  -->
       <div class="img-container">
         <div class="img">
-          <img src="<?="/blog/assets/".$post['img']?>" alt="" />
+          <img src="<?="/blog/uploads/".$post['img']?>" alt="" />
         </div>
       </div>
 
@@ -46,21 +46,23 @@ $logged_user_id = $_SESSION["user"]["id"] ?? -1;
           <div class="buttons-container">
             <button class="Edit" id="edit-post">Edit</button>
             <button form="fname" type="submit" class="Delete" name="post-delete-form" value="DELETE">Delete</button>
+              <!-- delete post form -->
               <form action="/blog/control/posts/post.php" method="POST" id="fname">
                   <input type="hidden" name="_method" value="DELETE">
-                  <input type="hidden" name="id" value="<?= $post["id"] ?>">
+                  <input type="hidden" name="post_id" value="<?= $post["id"] ?>">
               </form>
           </div>
         </div>
       <?php } ?>
 
-      <!-- edit post form -->
+      <!-- edit post window -->
       <div class="edit-modal modal-container">
         <div class="edit-modal modal-header">
           <button class="close-btn" id="edit-close-btn">&times;</button>
         </div>
         <div class="edit-modal modal-body">
-          <form action="/blog/control/posts/post.php" method="POST">
+          <!-- edit post form -->
+          <form action="/blog/control/posts/post.php" method="POST" enctype="multipart/form-data">
             <!-- title -->
             <label for="title">
               Title 
@@ -77,11 +79,8 @@ $logged_user_id = $_SESSION["user"]["id"] ?? -1;
               Image
             </label>
             <input
-              type="text"
-              id="image"
-              placeholder="type the post img number.."
+              type="file"
               name="image"
-              value="<?= $post["img"] ?>"
             />
             <!-- body  -->
             <label for="body">

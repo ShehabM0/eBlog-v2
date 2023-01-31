@@ -19,7 +19,7 @@
       ?>
       <a href="/blog/pages/posts/post.php?id=<?= $post["id"] ?>" id="post-link">
         <div class="post">
-          <img src="<?="/blog/assets/".$post['img']?>" alt="">
+          <img src="<?="/blog/uploads/".$post['img']?>" alt="">
           <h3><?= $post["title"] ?></h3>
           <p><?= $post["body"] ?></p>
           <div class="user">

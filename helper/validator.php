@@ -1,5 +1,12 @@
 <?php
 
+function uploadImg($image) {
+    $_POST["image"] = $image["name"];
+    $oldpath = $image["tmp_name"];
+    $newpath = "../../uploads/" . $image["name"];
+    move_uploaded_file($oldpath, $newpath);
+}
+
 function checkForm($array, $keys) {
     foreach($keys as $key) 
         if(!isset($array["$key"]) || empty($array["$key"]))
@@ -23,11 +30,18 @@ function checkLength($value, $max_length, $min_length = 3) {
     return strlen($value) <= $max_length && strlen($value) >= $min_length;
 }
 
+function checkImgSize($image) {
+    return ($image["size"] > 1000000) ? false : true; // 1mb
+}
+
 function checkImg($image) {
     $allowed_types = ['jpg', 'png', 'jpeg', 'gif'];
     foreach($allowed_types as $val)
-        if(str_contains($image, $val))
+        if(str_contains($image['type'], $val))
+        {
+            uploadImg($image);
             return true;
+        }
     return false;
 }
 
