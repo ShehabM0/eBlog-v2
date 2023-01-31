@@ -23,7 +23,7 @@ function checkPass($pass) {
 }
 
 function checkEmail($email) {
-    return preg_match('/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/', $email);
+    return preg_match('/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/', $email);
 }
 
 function checkLength($value, $max_length, $min_length = 3) {
