@@ -7,13 +7,16 @@ function checkForm($array, $keys) {
     return true;
 }
 
-function checkPass($pass)
-{
+function checkPass($pass) {
     //regular expression match (regex)
     $containsLetter = preg_match('/[a-zA-Z]/', $pass);
     $containsDigit = preg_match('/\d/', $pass);
     $containsSpecial = preg_match('/[^a-zA-Z\d]/', $pass);
     return ($containsLetter && $containsDigit && $containsSpecial);
+}
+
+function checkEmail($email) {
+    return preg_match('/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/', $email);
 }
 
 function checkLength($value, $max_length, $min_length = 3) {

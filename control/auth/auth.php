@@ -1,9 +1,9 @@
 <?php
 if(!isset($_SESSION))
     session_start();
-include_once "../helpers/validator.php";
-require "../database/db_connection.php";
-require "../database/user.php";
+include_once "../../helper/validator.php";
+require "../../database/db_connection.php";
+require "../../database/user.php";
 global $conn;
 
 if(isset($_POST["regform"])) {
@@ -19,7 +19,7 @@ if(isset($_POST["regform"])) {
     {
         $error = "Email you entered already exists!";
         array_push($_SESSION["messages"], $error);
-        header("location: /blog/pages/auth/register.php");
+        header("location: /blog/pages/auth/signup.php");
     }
 
     if(
@@ -27,6 +27,7 @@ if(isset($_POST["regform"])) {
         checkLength($username, 20) &&
         checkLength($password, 50, 8) &&
         checkPass($password) &&
+        checkEmail($email) &&
         $password === $password_conf
     ){
         $user_id = createUser($username, $email, $password);
@@ -44,15 +45,17 @@ if(isset($_POST["regform"])) {
             $error = "Registration data is invalid!";
         else if(!checkLength($username, 20))
             $error = "Username must be of length 3 as minimum and 20 as maximum!";
+        else if(!checkEmail($email))
+            $error = "Invalid email!";
         else if(!checkLength($password, 50, 8) || !checkPass($password))
         {
             $error = "Password must be atleast of length 8 ";
-            $error. = "and contains atleast one letter, digit and special character!";
+            $error.= "and contains atleast one letter, digit and special character!";
         }
         else if($password !== $password_conf)
             $error = "Passwords do not match!";
         array_push($_SESSION["messages"], $error);
-        header("location: /blog/pages/auth/register.php");
+        header("location: /blog/pages/auth/signup.php");
     }
 
 }
@@ -80,7 +83,7 @@ if(isset($_POST["loginform"])) {
     else {
         $error = "Create an account first.";
         array_push($_SESSION["messages"], $error);
-        header("location: /blog/pages/auth/register.php");
+        header("location: /blog/pages/auth/signup.php");
     }   
 }
 ?>
