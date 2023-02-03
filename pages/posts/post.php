@@ -68,6 +68,7 @@ $logged_user_id = $_SESSION["user"]["id"] ?? -1;
               Title 
             </label>
             <input
+              class="equal-width"
               type="text"
               id="title"
               placeholder="type the post title.."
@@ -79,6 +80,7 @@ $logged_user_id = $_SESSION["user"]["id"] ?? -1;
               Image
             </label>
             <input
+              class="equal-width"
               type="file"
               name="image"
             />
@@ -87,6 +89,7 @@ $logged_user_id = $_SESSION["user"]["id"] ?? -1;
               Body
             </label>
             <textarea
+              class="equal-width"
               type="text"
               id="body"
               placeholder="type the post body.."
@@ -96,6 +99,7 @@ $logged_user_id = $_SESSION["user"]["id"] ?? -1;
             <input type="hidden" name="post_id" value="<?= $post["id"] ?>">
             <!-- buttons -->
             <input
+              class="equal-width"
               type="submit"
               value="Edit"
               id="submit-button"

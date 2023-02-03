@@ -78,6 +78,7 @@
             <span style="color: red">*</span>
           </label>
           <input
+            class="equal-width"
             type="text"
             id="title"
             placeholder="type the post title.."
@@ -88,13 +89,18 @@
             Image link
             <span style="color: red">*</span>
           </label>
-          <input type="file"  name="image" />
+          <input 
+            class="equal-width"
+            type="file"
+            name="image"
+          />
           <!-- body  -->
           <label for="body">
             Body
             <span style="color: red">*</span>
           </label>
           <textarea
+            class="equal-width"
             type="text"
             id="text-body"
             placeholder="type the post body.."
@@ -102,6 +108,7 @@
           ></textarea>
           <!-- buttons -->
           <input
+            class="equal-width"
             type="submit"
             value="Create"
             id="submit-button"
