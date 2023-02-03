@@ -39,7 +39,6 @@ img{
 .create-modal.modal-container.active {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
-    
 }
 
 .create-modal.modal-header {
@@ -55,15 +54,9 @@ img{
     font-weight: 600;
 }
 
-.create-modal.modal-header button:hover {
-    background-color: rgb(195, 33, 33);
-    border-radius: 100px;
-}
-
-.create-modal.modal-body form label, input {
-    display: block;
-    width: 50%;
-    margin: 0 auto;
+.create-modal.modal-body form label {
+    padding-left: 25%;
+    font-weight: 500;
 }
 
 .create-modal.modal-body form input, textarea {
@@ -72,12 +65,8 @@ img{
     resize: none;
 }
 
-.create-modal.modal-body form textarea {
-    width: 46%;
-}
-
-.create-modal.modal-body form label {
-    font-weight: 500;
+.create-modal.modal-body form .equal-width {
+    width: 50%;
 }
 
 .create-modal.modal-body form #submit-button {

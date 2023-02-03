@@ -1,6 +1,6 @@
 .alert-msg {
     width: 400px;
-    height: 100px;
+    min-height: 100px;
     color: #a94442;
     background-color: #f2dede;
     position: absolute;
@@ -9,8 +9,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -400%);
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
     border-radius: 10px;
     position: fixed;
 }
